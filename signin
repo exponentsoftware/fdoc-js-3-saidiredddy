@@ -1,0 +1,12 @@
+
+function signIn(user_det){
+    for (let uname of users) {
+        if (uname.email == user_det.email && uname.password == user_det.password) {
+            uname.isLoggedIn = true
+            return " User signed in"
+        }
+    }
+}
+
+console.log(signIn({email: 'shubhra@gmail.com',password: '897635'}))
+// console.log(users)
