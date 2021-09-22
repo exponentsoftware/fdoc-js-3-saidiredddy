@@ -1,0 +1,47 @@
+
+function signUp(newEntry) {
+    for (let uname of users) {
+        if (uname.email == newEntry.email) {
+            return "User already exists"
+        }
+    }
+    var today = new Date()
+    var ap = "AM"
+    var hr = today.getHours()
+    if (hr >= 12) {
+        ap = "PM"
+        hr = hr - 12
+    }
+    var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear() + ' ' + hr + ':' + today.getMinutes() + ' ' + ap
+    // console.log(date)
+    var charset = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    var id = '';
+    for ( var i = 0; i < 6; i++ ) {
+        id += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+    users.push({
+        _id: id,
+        username: newEntry.username,
+        email: newEntry.email,
+        password: newEntry.password,
+        createdAt: date,
+        isLoggedIn: false
+    })
+    return " User is signed up"
+}
+
+let newEntry = {
+    username: 'shubhra',
+    email: 'shubhra@gmail.com',
+    password: '897635'
+}
+console.log(signUp(newEntry))
+// console.log(users)
+
+
+
+
+    
+
+
+    
