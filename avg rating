@@ -1,0 +1,18 @@
+function avg_Rating(pid){
+    let total_rating=0
+    let total_users =0
+    for(let product of products){
+        if(product._id == pid){
+            total_users = product.ratings.length;
+            total_rating = product.ratings.map(pr=> total_rating+pr.rate)
+            // for(let pr of product.ratings){
+            //     total_rating=total_rating+pr.rate
+            //     console.log(pr.rate)
+            // }
+        }
+    }
+    let avg = total_rating/total_users;
+
+    return avg
+}
+console.log(avg_Rating("aegfal"))
