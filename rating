@@ -1,0 +1,24 @@
+function rateProduct(user_rating){
+    for(let product of products){
+        if(product._id == user_rating.pid){
+            const obj = {}
+            obj["userId"] = user_rating.userId;
+            obj["rate"] = user_rating.rate;
+
+            product.ratings.push(obj)
+            console.log(product.ratings)
+            return product
+        }
+    }
+}
+
+
+user_rating = { 
+    pid :  'aegfal',
+    userId: 'lsde80', 
+    rate: 3.5
+}
+
+// console.log(rateProduct(rating))
+rateProduct(user_rating)
+// console.log(Object.values(products))
